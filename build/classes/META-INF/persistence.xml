@@ -5,20 +5,21 @@
 
 	<persistence-unit name="livraria" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		
+
 		<class>br.com.emerson.livraria.modelo.Autor</class>
+		<class>br.com.emerson.livraria.modelo.Usuario</class>
 		<class>br.com.emerson.livraria.modelo.Livro</class>
 
 		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/livrariadb" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3307/livrariadb"></property>
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="root" />
-			
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
-		</properties>
+			<property name="hibernate.format_sql" value="true" />
 
+		</properties>
 	</persistence-unit>
 </persistence>

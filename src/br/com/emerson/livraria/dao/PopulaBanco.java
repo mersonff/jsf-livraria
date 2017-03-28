@@ -27,6 +27,9 @@ public class PopulaBanco {
 		Autor coelho = geraAutor("Paulo Coelho");
 		em.persist(coelho);
 
+		Autor lobato = geraAutor("Monteiro Lobato");
+		em.persist(lobato);
+
 		Livro casmurro = geraLivro("978-8-52-504464-8", "Dom Casmurro",
 				"10/01/1899", 24.90, assis);
 		Livro memorias = geraLivro("978-8-50-815415-9",
@@ -78,11 +81,10 @@ public class PopulaBanco {
 		livro.setTitulo(titulo);
 		livro.setDataLancamento(parseData(data));
 		livro.setPreco(preco);
-		livro.adicionarAutor(autor);
+		livro.adicionaAutor(autor);
 		return livro;
 	}
 
-	@SuppressWarnings("unused")
 	private static Calendar parseData(String data) {
 		try {
 			Date date = new SimpleDateFormat("dd/MM/yyyy").parse(data);
